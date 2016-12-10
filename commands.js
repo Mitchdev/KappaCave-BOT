@@ -498,7 +498,7 @@ function regCommands(commandManager) {
                     {
                         var now = Date.now(), cooldown = utils.settingsManager.getRouletteCooldown();
                         if(last >= 0 && (now - last) < cooldown) {
-                            utils.bot.sendChat('@' + utils.getUserUsername() + ' hold on! Last roulette was ' + moment(last).fromNow() + '. You must wait ' + (cooldown / 60 / 1000) + ' minute(s) to run the roulette again.');
+                            utils.bot.sendChat('@' + utils.getUserUsername() + ' last roulette was ' + moment(last).fromNow() + '. You will be able to run a roulette in ' + (cooldown / 60 / 1000) + ' minute(s).');
                             return;
                         }
                     }
