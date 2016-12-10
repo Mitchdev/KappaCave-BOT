@@ -616,7 +616,7 @@ function regCommands(commandManager) {
                 utils.redisManager.getLastGameTimestamp('roulette', function(last) {
                     var now = Date.now(), cooldown = utils.settingsManager.getRouletteCooldown();
                     if(last >= 0 && (now - last) < cooldown) {
-                        utils.bot.sendChat('@' + utils.getUserUsername() + ' last roulette was ' + moment(last).fromNow() + '. You will be able to run a roulette in ' + moment(last + cooldown).diff(now, 'minutes') + ' minute(s).');
+                        utils.bot.sendChat('@' + utils.getUserUsername() + ' last roulette was ' + moment(last).fromNow() + '. You will be able to run a roulette in ' + (cooldown / 60 / 1000) + ' minute(s).');
                     } else {
                         utils.bot.sendChat('@' + utils.getUserUsername() + ' more than ' + (cooldown / 60 / 1000) + ' minute(s) has passed, go ahead to run that command!')
                     }
